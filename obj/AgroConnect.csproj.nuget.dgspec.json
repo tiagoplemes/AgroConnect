@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Desenvolvedor\\Desktop\\TestesPontua\\Projetos Pessoais\\AgroConnect\\AgroConnect.csproj": {}
+    "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Desenvolvedor\\Desktop\\TestesPontua\\Projetos Pessoais\\AgroConnect\\AgroConnect.csproj": {
+    "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Desenvolvedor\\Desktop\\TestesPontua\\Projetos Pessoais\\AgroConnect\\AgroConnect.csproj",
+        "projectUniqueName": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj",
         "projectName": "AgroConnect",
-        "projectPath": "C:\\Users\\Desenvolvedor\\Desktop\\TestesPontua\\Projetos Pessoais\\AgroConnect\\AgroConnect.csproj",
-        "packagesPath": "C:\\Users\\Desenvolvedor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Desenvolvedor\\Desktop\\TestesPontua\\Projetos Pessoais\\AgroConnect\\obj\\",
+        "projectPath": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj",
+        "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Desenvolvedor\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
