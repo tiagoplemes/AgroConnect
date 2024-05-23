@@ -24,11 +24,11 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 
-//// Código para fazer o Add-Migration e o Update-Database automaticamente ao rodar a aplicação
-//using (var scope = app.Services.CreateScope())
-//{
-//    var db = scope.ServiceProvider.GetRequiredService<AgroConnectDbContext>();
-//    db.Database.Migrate();
-//}
+// Código para fazer o Add-Migration e o Update-Database automaticamente ao rodar a aplicação
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AgroConnectDbContext>();
+    db.Database.Migrate();
+}
 
 app.Run();

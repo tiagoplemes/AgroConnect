@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgroConnect.Migrations
 {
     [DbContext(typeof(AgroConnectDbContext))]
-    [Migration("20240523194159_Relacionamento1")]
-    partial class Relacionamento1
+    [Migration("20240523210257_Relacionamento")]
+    partial class Relacionamento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,9 +74,9 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string[]>("Vacina")
+                    b.Property<string>("Vacina")
                         .IsRequired()
-                        .HasColumnType("text[]");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

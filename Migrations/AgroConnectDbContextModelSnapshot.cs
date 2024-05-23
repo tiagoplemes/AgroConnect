@@ -71,9 +71,9 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string[]>("Vacina")
+                    b.Property<string>("Vacina")
                         .IsRequired()
-                        .HasColumnType("text[]");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
