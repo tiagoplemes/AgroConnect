@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AgroConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3da4a4849fc354e8fe1fbb3fbe897983838a98b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbca76379e6424449f74edc08ee6e23d9b7f9956")]
 [assembly: System.Reflection.AssemblyProductAttribute("AgroConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AgroConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

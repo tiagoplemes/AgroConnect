@@ -20,20 +20,23 @@ namespace AgroConnect.Pages
         }
 
         [BindProperty]
-        public Usuario Usuarios { get; set; }
+        public Usuario UsuarioFront { get; set; }
         public async Task<IActionResult> OnPost()
         {
-            if (_context.usuarios == null || Usuarios == null)
+            if (_context.usuarios == null || UsuarioFront == null)
             {
                 return Page();
             }
 
             List<Usuario> Comparar = await _context.usuarios.ToListAsync();
 
-            bool Acesso = Comparar.Any(x =>  Usuarios.Email == x.Email && Usuarios.Senha == x.Senha);
+            bool Acesso = Comparar.Any(x => UsuarioFront.Email == x.Email && UsuarioFront.Senha == x.Senha);
 
             if (Acesso)
             {
+                Usuario usuarioLogando = await _context.usuarios.FirstOrDefaultAsync(NomeIgual => (NomeIgual.Email == UsuarioFront.Email && UsuarioFront.Senha == NomeIgual.Senha));
+
+                TempData["UsuarioLogado"] = usuarioLogando.Id;
                 return RedirectToPage("Home");
             }
             else

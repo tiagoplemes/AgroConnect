@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AgroConnect.Pages
 {
-    public class HomeModel : PageModel
+    public class GadoHomeModel : PageModel
     {
         public IActionResult OnGet()
         {
-            if (!TempData.ContainsKey("UsuarioLogado")) 
+            if (!TempData.ContainsKey("UsuarioLogado"))
             {
                 return RedirectToPage("/Error");
             }
