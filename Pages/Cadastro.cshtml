@@ -1,0 +1,59 @@
+﻿@page
+@model AgroConnect.Pages.CadastroModel
+@{
+}
+
+<style>
+    /* Estilos personalizados */
+    .bg-image {
+        background-image: url("~/images/LavouraSoja.jpg"); /* Substitua pelo caminho correto da imagem de fundo */
+      backgro                                               und-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+    /* Estilos para o formulário */
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 p-5 form-container">
+            <h2>Cadastre-se Aqui</h2>
+            <form method="post">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input asp-for="Usuarios.Nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input asp-for="Usuarios.Cpf" type="text" class="form-control" id="cpf" placeholder="Digite seu cpf completo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input asp-for="Usuarios.Email" type="email" class="form-control" id="email" placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input asp-for="Usuarios.Senha" type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input asp-for="Usuarios.Cidade"  type="text" class="form-control" id="cidade" placeholder="Digite sua cidade">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input asp-for="Usuarios.Telefone" type="tel" class="form-control" id="telefone" placeholder="Digite seu telefone">
+                </div>
+                <button type="submit" value="Usuario" class="btn btn-primary">Registrar</button>
+                <button type="button" class="btn btn-outline-danger">Registrar com Google</button>
+            </form>
+        </div>
+        <div class="col-md-6 bg-image">
+            <img src="~/images/LavouraSoja.jpg" class="w-100 h-auto object-fit-fill" alt="img">
+        </div>
+    </div>
+</div>

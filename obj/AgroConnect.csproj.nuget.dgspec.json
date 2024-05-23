@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj": {}
+    "C:\\Users\\tiago\\source\\repos\\AgroConnect\\AgroConnect.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj": {
+    "C:\\Users\\tiago\\source\\repos\\AgroConnect\\AgroConnect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj",
+        "projectUniqueName": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\AgroConnect.csproj",
         "projectName": "AgroConnect",
-        "projectPath": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj",
+        "projectPath": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\AgroConnect.csproj",
         "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\obj\\",
+        "outputPath": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",

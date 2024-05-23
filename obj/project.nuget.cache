@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YqvqRd+sghBc7UT6N/O1cPCD6t5nXcIG5qOSHUg1PMP0uRfeXGu30oGla3Qy1dpkUc6zEFBCkApSfF+aT5r3TA==",
+  "dgSpecHash": "4vulRKDLLULEeTeiIdsr3SLi2VF7ozUWyg5ZhQUFeZwRKXls9H7aTGRKSQLFinEDklaaaFhkt4MjwA1+JOaO1A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tiago\\Source\\Repos\\AgroConnect\\AgroConnect.csproj",
+  "projectFilePath": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\AgroConnect.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tiago\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tiago\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

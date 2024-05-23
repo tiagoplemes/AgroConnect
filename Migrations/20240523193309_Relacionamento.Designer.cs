@@ -3,6 +3,7 @@ using System;
 using AgroConnect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgroConnect.Migrations
 {
     [DbContext(typeof(AgroConnectDbContext))]
-    partial class AgroConnectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240523193309_Relacionamento")]
+    partial class Relacionamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,15 +48,17 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UsuarioId")
-                        .IsRequired()
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UsuarioId1")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("HistoricoId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioId1");
 
                     b.ToTable("gados");
                 });
@@ -102,13 +107,15 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UsuarioId")
-                        .IsRequired()
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UsuarioId1")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioId1");
 
                     b.ToTable("plantacoes");
                 });
@@ -158,9 +165,7 @@ namespace AgroConnect.Migrations
 
                     b.HasOne("AgroConnect.Models.Usuario", "Usuario")
                         .WithMany("Gados")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UsuarioId1");
 
                     b.Navigation("Historico");
 
@@ -171,9 +176,7 @@ namespace AgroConnect.Migrations
                 {
                     b.HasOne("AgroConnect.Models.Usuario", "Usuario")
                         .WithMany("Plantacoes")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UsuarioId1");
 
                     b.Navigation("Usuario");
                 });

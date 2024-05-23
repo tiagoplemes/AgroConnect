@@ -1,0 +1,46 @@
+﻿@page
+@model AgroConnect.Pages.LoginModel
+@{
+}
+<style>
+    /* Estilos personalizados */
+    .bg-image {
+        background-image: url("~/images/LavouraSoja.jpg"); /* Substitua pelo caminho correto da imagem de fundo */
+      backgro                                               und-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+    /* Estilos para o formulário */
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+    }
+ </style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="emailUsername" class="form-label">Email ou Nome de Usuário</label>
+                    <input asp-for="Usuarios.Email" type="text" class="form-control" id="emailUsername">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Digite a Senha</label>
+                    <input asp-for="Usuarios.Senha" type="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="#" class="btn btn-link">Esqueceu a senha?</a>
+                <button type="button" class="btn btn-danger">Login com Google</button>
+            </form>
+        </div>
+        <div class="col-md-6 bg-image">
+            <img src="~/images/LavouraSoja.jpg" alt="Imagem Agricultura" class="w-100 h-auto object-fit-fill">
+        </div>
+    </div>
+    <div class="mt-3">
+        <p>Primeira vez aqui? <a href="#" class="btn btn-link">Cadastre-se!</a></p>
+    </div>
+</div>
+

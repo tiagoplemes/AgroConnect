@@ -8,6 +8,9 @@ namespace AgroConnect.Models
         [Key]
         public string Id { get; set; }
 
+        public string UsuarioId { get; set; }
+        public Usuario Usuario { get; set; }
+
         [Required]
         public string Nome { get; set; }
 

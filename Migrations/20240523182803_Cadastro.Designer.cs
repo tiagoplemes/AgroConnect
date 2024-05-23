@@ -3,6 +3,7 @@ using System;
 using AgroConnect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgroConnect.Migrations
 {
     [DbContext(typeof(AgroConnectDbContext))]
-    partial class AgroConnectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240523182803_Cadastro")]
+    partial class Cadastro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,9 +29,6 @@ namespace AgroConnect.Migrations
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
-
-                    b.Property<double>("Dono")
-                        .HasColumnType("double precision");
 
                     b.Property<string>("HistoricoId")
                         .IsRequired()
@@ -45,15 +45,9 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UsuarioId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.HasIndex("HistoricoId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("gados");
                 });
@@ -71,9 +65,9 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string[]>("Vacina")
+                    b.Property<string>("Vacina")
                         .IsRequired()
-                        .HasColumnType("text[]");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -102,13 +96,7 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UsuarioId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("plantacoes");
                 });
@@ -116,7 +104,6 @@ namespace AgroConnect.Migrations
             modelBuilder.Entity("AgroConnect.Models.Usuario", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
                     b.Property<string>("Cidade")
@@ -156,33 +143,7 @@ namespace AgroConnect.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AgroConnect.Models.Usuario", "Usuario")
-                        .WithMany("Gados")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Historico");
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("AgroConnect.Models.Plantacao", b =>
-                {
-                    b.HasOne("AgroConnect.Models.Usuario", "Usuario")
-                        .WithMany("Plantacoes")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("AgroConnect.Models.Usuario", b =>
-                {
-                    b.Navigation("Gados");
-
-                    b.Navigation("Plantacoes");
                 });
 #pragma warning restore 612, 618
         }
