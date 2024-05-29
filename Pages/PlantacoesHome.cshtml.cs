@@ -18,19 +18,21 @@ namespace AgroConnect.Pages
         [BindProperty]
         public List<Plantacao> PlantacoesFront { get; set; }
 
-        public  IActionResult OnGet()
+        /*public IActionResult OnGet()
         {
-            if (!TempData.ContainsKey("UsuarioLogado"))
+            
+        }*/
+
+        public async Task<IActionResult> OnGetAsync()
+        {
+            if(!TempData.ContainsKey("UsuarioLogado"))
             {
                 return RedirectToPage("/Error");
             }
 
-            return Page();
-        }
-
-        public async Task OnGetPlantacoesAsync()
-        {
             PlantacoesFront = await _context.plantacoes.ToListAsync();
+
+            return Page();
         }
     }
 }
