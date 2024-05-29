@@ -1,18 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\",
+  "WorkspaceRootPath": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\tiago\\source\\repos\\agroconnect\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\plantacoeshome.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\plantacoeshome.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\tiago\\source\\repos\\agroconnect\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\plantacoeshome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\plantacoeshome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\gadohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\gadohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\tiago\\source\\repos\\agroconnect\\pages\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\home.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\home.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\pages\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:pages\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|c:\\users\\pcdaniel\\source\\repos\\agroconnect\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{71D59721-D588-4B6C-B256-C775BF9FB28D}|AgroConnect.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +54,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "Home.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Home.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Home.cshtml.cs",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Home.cshtml.cs",
+              "RelativeToolTip": "Pages\\Home.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAmwAcAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T22:10:20.492Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Home.cshtml",
-              "DocumentMoniker": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\Pages\\Home.cshtml",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Home.cshtml",
               "RelativeDocumentMoniker": "Pages\\Home.cshtml",
-              "ToolTip": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\Pages\\Home.cshtml",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Home.cshtml",
               "RelativeToolTip": "Pages\\Home.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAVAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAAAFgAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T23:35:02.119Z",
+              "WhenOpened": "2024-05-23T22:54:04.2Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T23:11:18.31Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -42,29 +103,115 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAA7AAAA",
+              "Title": "PlantacoesHome.cshtml",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\PlantacoesHome.cshtml",
+              "RelativeDocumentMoniker": "Pages\\PlantacoesHome.cshtml",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\PlantacoesHome.cshtml",
+              "RelativeToolTip": "Pages\\PlantacoesHome.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T23:25:08.379Z",
+              "WhenOpened": "2024-05-29T15:05:13.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAADMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T23:25:10.107Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\Pages\\Login.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Login.cshtml",
-              "ToolTip": "C:\\Users\\tiago\\source\\repos\\AgroConnect\\Pages\\Login.cshtml",
-              "RelativeToolTip": "Pages\\Login.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABcAAAAgAAAA",
+              "Title": "PlantacoesHome.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\PlantacoesHome.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\PlantacoesHome.cshtml.cs",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\PlantacoesHome.cshtml.cs",
+              "RelativeToolTip": "Pages\\PlantacoesHome.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T15:07:42.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T14:37:27.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GadoHome.cshtml",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\GadoHome.cshtml",
+              "RelativeDocumentMoniker": "Pages\\GadoHome.cshtml",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\GadoHome.cshtml",
+              "RelativeToolTip": "Pages\\GadoHome.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T23:14:28.549Z",
+              "WhenOpened": "2024-05-29T17:57:10.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Pages\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\_ViewStart.cshtml",
+              "RelativeToolTip": "Pages\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T14:41:31.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\Pages\\Login.cshtml.cs",
+              "RelativeToolTip": "Pages\\Login.cshtml.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBcAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T15:12:11.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\PcDaniel\\source\\repos\\AgroConnect\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-29T14:36:57.993Z",
               "EditorCaption": ""
             }
           ]
