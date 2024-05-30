@@ -2,24 +2,20 @@ using AgroConnect.Data;
 using AgroConnect.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace AgroConnect.Pages
 {
-    public class PlantacoesHomeModel : PageModel
+    public class PlantacoesEditarModel : PageModel
     {
         private readonly AgroConnectDbContext _context;
 
-        public PlantacoesHomeModel(AgroConnectDbContext context)
+        public PlantacoesEditarModel(AgroConnectDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public List<Plantacao> PlantacoesFront { get; set; }
-
-        [BindProperty]
-        public Plantacao PlantacaoCadastro { get; set; }
+        public Plantacao PlantacoesFront { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -28,18 +24,14 @@ namespace AgroConnect.Pages
                 return RedirectToPage("/Error");
             }
 
-            string idUsuarioLogado = TempData["UsuarioLogado"].ToString();
-
-            PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
-
             return Page();
         }
 
         public async Task<IActionResult> OnPost()
         {
-            _context.plantacoes.Add(PlantacaoCadastro);
+            _context.plantacoes.Add(PlantacoesFront);
             await _context.SaveChangesAsync();
-            return Page();
+            return RedirectToPage("PlantacoesHome");
         }
     }
 }
