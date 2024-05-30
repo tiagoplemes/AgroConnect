@@ -25,9 +25,9 @@ namespace AgroConnect.Pages
                 return RedirectToPage("/Error");
             }
 
-            string usuarioLogado = TempData["UsuarioLogado"].ToString();
+            string idUsuarioLogado = TempData["UsuarioLogado"].ToString();
 
-            PlantacoesFront = await _context.plantacoes.OrderBy(x => x.Id).ToListAsync();
+            PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == usuarioLogado).OrderBy(x => x.Id).ToListAsync();
 
             return Page();
         }
