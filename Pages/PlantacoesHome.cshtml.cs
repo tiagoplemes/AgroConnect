@@ -27,7 +27,7 @@ namespace AgroConnect.Pages
 
             string idUsuarioLogado = TempData["UsuarioLogado"].ToString();
 
-            PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == usuarioLogado).OrderBy(x => x.Id).ToListAsync();
+            PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
 
             return Page();
         }
