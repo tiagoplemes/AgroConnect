@@ -7,7 +7,7 @@ namespace AgroConnect.Pages
     {
         public IActionResult OnGet()
         {
-            if (!TempData.ContainsKey("UsuarioLogado")) 
+            if (!TempData.ContainsKey("UsuarioLogado"))
             {
                 return RedirectToPage("/Error");
             }
