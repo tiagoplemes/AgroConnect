@@ -33,7 +33,7 @@ namespace AgroConnect.Pages
                 return RedirectToPage("/Error");
             }
 
-            // Busca todas as plantações do usuário logado
+            /// Busca todas as plantações do usuário logado.
             PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == _idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
 
             return Page();
@@ -41,7 +41,13 @@ namespace AgroConnect.Pages
 
         public async Task<IActionResult> OnPost()
         {
+            GetCookieIdUsuarioLogado();
             PlantacaoCadastro.UsuarioId = _idUsuarioLogado.Value;
+
+            /// Converter a Data do Plantio e a Data da Colheita para UTC (Coordinated Universal Time), devido ao postgresql armazenar a data em UTC.
+            PlantacaoCadastro.DataPlantio = PlantacaoCadastro.DataPlantio.ToUniversalTime();
+            PlantacaoCadastro.DataColheita = PlantacaoCadastro.DataColheita.ToUniversalTime();
+
             _context.plantacoes.Add(PlantacaoCadastro);
             await _context.SaveChangesAsync();
             return Page();
