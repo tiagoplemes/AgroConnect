@@ -12,27 +12,32 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgroConnect.Migrations
 {
     [DbContext(typeof(AgroConnectDbContext))]
-    [Migration("20240507134320_tentativa3")]
-    partial class tentativa3
+    [Migration("20240531214022_Migracao001_IdsAutoGeraveis")]
+    partial class Migracao001_IdsAutoGeraveis
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.3")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("AgroConnect.Models.Gado", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
 
-                    b.Property<string>("HistoricoId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Dono")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("HistoricoId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -45,17 +50,25 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("HistoricoId");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("gados");
                 });
 
             modelBuilder.Entity("AgroConnect.Models.GadoHistorico", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Reproducao")
                         .IsRequired()
@@ -76,8 +89,11 @@ namespace AgroConnect.Migrations
 
             modelBuilder.Entity("AgroConnect.Models.Plantacao", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DataColheita")
                         .HasColumnType("timestamp with time zone");
@@ -96,17 +112,33 @@ namespace AgroConnect.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("plantacoes");
                 });
 
             modelBuilder.Entity("AgroConnect.Models.Usuario", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -115,6 +147,10 @@ namespace AgroConnect.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Telefone")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -131,7 +167,33 @@ namespace AgroConnect.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AgroConnect.Models.Usuario", "Usuario")
+                        .WithMany("Gados")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Historico");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("AgroConnect.Models.Plantacao", b =>
+                {
+                    b.HasOne("AgroConnect.Models.Usuario", "Usuario")
+                        .WithMany("Plantacoes")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("AgroConnect.Models.Usuario", b =>
+                {
+                    b.Navigation("Gados");
+
+                    b.Navigation("Plantacoes");
                 });
 #pragma warning restore 612, 618
         }

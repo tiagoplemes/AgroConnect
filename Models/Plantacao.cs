@@ -1,14 +1,16 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroConnect.Models
 {
     public class Plantacao
     {
         [Key]
-        public string Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        public string UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
 
         [Required]

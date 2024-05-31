@@ -7,7 +7,7 @@ namespace AgroConnect.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public List<Gado> Gados { get; set; }
         public List<Plantacao> Plantacoes { get; set; }

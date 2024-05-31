@@ -8,7 +8,10 @@ namespace AgroConnect.Pages
 {
     public class PlantacoesHomeModel : PageModel
     {
+
         private readonly AgroConnectDbContext _context;
+
+        private int? _idUsuarioLogado;
 
         public PlantacoesHomeModel(AgroConnectDbContext context)
         {
@@ -23,23 +26,31 @@ namespace AgroConnect.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            if (!TempData.ContainsKey("UsuarioLogado"))
+            GetCookieIdUsuarioLogado();
+
+            if (_idUsuarioLogado == null)
             {
                 return RedirectToPage("/Error");
             }
 
-            string idUsuarioLogado = TempData["UsuarioLogado"].ToString();
-
-            PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
+            // Busca todas as plantações do usuário logado
+            PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == _idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
 
             return Page();
         }
 
         public async Task<IActionResult> OnPost()
         {
+            PlantacaoCadastro.UsuarioId = _idUsuarioLogado.Value;
             _context.plantacoes.Add(PlantacaoCadastro);
             await _context.SaveChangesAsync();
             return Page();
+        }
+
+        private void GetCookieIdUsuarioLogado()
+        {
+            var cookie = Request.Cookies["UsuarioLogado"];
+            _idUsuarioLogado = cookie == null ? null : int.Parse(cookie);
         }
     }
 }

@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@{
+    bool usuarioLogado = Context.Request.Cookies.ContainsKey("UsuarioLogado");
+
+    if (usuarioLogado)
+    {
+        Console.WriteLine("Chegou aqui!");
+    }
+    else
+    {
+        Console.WriteLine("Não chegou aqui!");
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,7 +22,8 @@
     <link rel="stylesheet" href="~/AgroConnect.styles.css" asp-append-version="true" />
 </head>
 <body>
-    @if (!TempData.ContainsKey("UsuarioLogado"))
+    <!-- crie uma condicional para mostrar os elementos somente se ouver o cookie na chave "UsuarioLogado" -->
+    @if (!usuarioLogado)
     {
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">

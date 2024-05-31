@@ -36,7 +36,10 @@ namespace AgroConnect.Pages
             {
                 Usuario usuarioLogando = await _context.usuarios.FirstOrDefaultAsync(NomeIgual => (NomeIgual.Email == UsuarioFront.Email && UsuarioFront.Senha == NomeIgual.Senha));
 
-                TempData["UsuarioLogado"] = usuarioLogando.Id;
+                // Put the id of the logged user on a cookie for future use
+
+                SetIdCookie(usuarioLogando.Id);
+
                 return RedirectToPage("Home");
             }
             else
@@ -44,5 +47,11 @@ namespace AgroConnect.Pages
                 return RedirectToPage("Login");
             }
         }
+
+        public void SetIdCookie(int id)
+        {
+            Response.Cookies.Append("UsuarioLogado", id.ToString());
+        }
+        
     }
 }

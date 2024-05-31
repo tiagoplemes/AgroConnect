@@ -7,13 +7,17 @@ namespace AgroConnect.Pages
     {
         public IActionResult OnGet()
         {
-            if (TempData.ContainsKey("UsuarioLogado"))
-            {
-                TempData.Remove("UsuarioLogado");
-                TempData.Clear();
-            }
+            ClearIdCookie();
 
             return RedirectToPage("Index");
+        }
+
+        public void ClearIdCookie()
+        {
+            if (Request.Cookies.ContainsKey("UsuarioLogado"))
+            {
+                Response.Cookies.Delete("UsuarioLogado");
+            }
         }
     }
 }
