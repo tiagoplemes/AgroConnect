@@ -70,14 +70,62 @@
                                 <th>@Html.DisplayFor(x => plantacao.Nome)</th>
                                 <th>@Html.DisplayFor(x => plantacao.Tipo)</th>
                                 <th>@Html.DisplayFor(x => plantacao.Quantidade)</th>
-                                <th>@Html.DisplayFor(x => plantacao.DataPlantio)</th>
-                                <th>@Html.DisplayFor(x => plantacao.DataColheita)</th>
+                                <th>@Html.DisplayFor(x => plantacao.DataPlantio.Date)</th>
+                                <th>@Html.DisplayFor(x => plantacao.DataColheita.Date)</th>
                                 <th>
-                                    <a style="btn btn-primary" asp-asp-page="./Editar" asp-route-itemid="@plantacao.Id" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    <a style="btn btn-danger" asp-asp-page="./Deletar" asp-route-itemid="@plantacao.Id">Deletar</a>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Launch demo modal
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@plantacao.Id">
+                                        Editar
                                     </button>
+
+                                    <form method="post" asp-page="PlantacoesHome" asp-page-handler="Delete">
+                                        <input type="text" hidden="hidden" asp-for="PlantacaoDeletar.Id" value="@plantacao.Id" />
+                                        <button type="submit" class="btn btn-danger">Deletar</button>
+                                    </form>
+
+                                    <div class="modal fade" id="editModal-@plantacao.Id" tabindex="-1" role="dialog" aria-labelledby="editModalLabel-@plantacao.Id" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editModalLabel-@plantacao.Id">Editar Plantacao</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="post" asp-page="PlantacoesHome" asp-page-handler="Update">
+                                                    <!-- Formulário com os campos para edição -->
+                                                        <input type="text" hidden="hidden" asp-for="PlantacaoEditar.Id" value="@plantacao.Id" />
+                                                        <div class="form-group">
+                                                            <label for="nomePropriedade">Nome da Propriedade:</label>
+                                                            <input type="text" class="form-control" id="editNome" asp-for="PlantacaoEditar.Nome" value="@plantacao.Nome">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="tipoPlantacao">Tipo de Plantação:</label>
+                                                            <input type="text" class="form-control" id="editTipoPlantacao" asp-for="PlantacaoEditar.Tipo" value="@plantacao.Tipo">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="quantidade">Quantidade:</label>
+                                                            <input type="number" class="form-control" id="editQuantidade" asp-for="PlantacaoEditar.Quantidade" value="@plantacao.Quantidade">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="dataColheita">Data de Plantio:</label>
+                                                            <input type="date" class="form-control" id="editDataPlantio" asp-for="PlantacaoEditar.DataPlantio" value="@plantacao.DataPlantio.Date">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="dataColheita">Data prevista para Colheita:</label>
+                                                            <input type="date" class="form-control" id="editDataColheita" asp-for="PlantacaoEditar.DataColheita" value="@plantacao.DataColheita.Date">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                            <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </th>
                             </tr>
                         }
@@ -104,7 +152,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form method="post" asp-page="PlantacoesHome" asp-page-handler="Create">
                     <div class="form-group">
                         <label for="nomePropriedade">Nome da Propriedade:</label>
                         <input type="text" class="form-control" id="nomePropriedade" asp-for="PlantacaoCadastro.Nome" placeholder="Nome">
@@ -135,35 +183,3 @@
         </div>
     </div>
 </div>
-
-@* <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Plantacoes</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form method="post">
-                    <div class="form-group">
-                        <label for="nomePropriedade">Nome da Propriedade:</label>
-                        <input type="text" class="form-control" id="nomePropriedade" asp-for="PlantacaoEditar.Nome" placeholder="@Model.PlantacaoSelecionada.Nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="tipoPlantacao">Tipo de Plantação:</label>
-                        <input type="text" class="form-control" id="tipoPlantacao" asp-for="PlantacaoEditar.Tipo" placeholder="@Model.PlantacaoSelecionada.Tipo">
-                    </div>
-                    <div class="form-group">
-                        <label for="dataColheita">Data prevista para Colheita:</label>
-                        <input type="date" class="form-control" id="dataColheita" asp-for="PlantacaoEditar.DataColheita" placeholder="@Model.PlantacaoSelecionada.DataColheita">
-                    </div>
-                    <button type="submit" class="btn btn-confirmar">Confirmar</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>*@

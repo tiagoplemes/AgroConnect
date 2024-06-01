@@ -11,6 +11,11 @@ namespace AgroConnect.Data
         public virtual DbSet<Plantacao> plantacoes { get; set; }
         public virtual DbSet<GadoHistorico> gadoHistoricos { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Gado>()
