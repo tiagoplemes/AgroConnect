@@ -2,3 +2,205 @@
 @model AgroConnect.Pages.GadoHomeModel
 @{
 }
+
+
+<div class="container-fluid px-5">
+    <div class="row px-0">
+        <!-- Cabeçalho do conteúdo principal -->
+        <h1>Gados</h1>
+
+        <!-- Cards com dados -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados 1</h5>
+                        <p class="card-text">Informações relevantes aqui.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados 2</h5>
+                        <p class="card-text">Outras informações importantes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados 3</h5>
+                        <p class="card-text">Mais detalhes relevantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de adicionar lavoura -->
+        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#createModal">Adicionar Gado</button>
+
+        <!-- Barra de pesquisa -->
+        <div class="input-group mt-3">
+            <input type="text" class="form-control" id="searchInput" placeholder="Pesquisar...">
+            <button class="btn btn-outline-secondary" type="button">Buscar</button>
+        </div>
+
+        <!-- Tabela -->
+        <table class="table table-striped table-hover mt-3" id="gadosTable">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Raca)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Peso)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Dono)</th>
+                    <th>Ações</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.GadosFront.Any())
+                {
+                    @foreach (var gado in Model.GadosFront)
+                    {
+                        <tr>
+                            <th>@gado.Id</th>
+                            <th>@gado.Nome</th>
+                            <th>@gado.Raca</th>
+                            <th>@gado.Peso</th>
+                            <th>@gado.Dono</th>
+                            <th class="d-flex">
+                                <button type="button" class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#editModal-@gado.Id">
+                                    Editar
+                                </button>
+
+                                <form method="post" asp-page="GadoHome" asp-page-handler="Delete">
+                                    <input type="text" hidden="hidden" asp-for="GadoDeletar.Id" value="@gado.Id" />
+                                    <button type="submit" class="btn btn-danger px-4">Deletar</button>
+                                </form>
+
+                                <div class="modal fade" id="editModal-@gado.Id" tabindex="-1" role="dialog" aria-labelledby="editModalLabel-@gado.Id" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModalLabel-@gado.Id">Editar Gado</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" asp-page="GadoHome" asp-page-handler="Update">
+                                                    <!-- Formulário com os campos para edição -->
+                                                    <input type="text" hidden="hidden" asp-for="GadoEditar.Id" value="@gado.Id" />
+                                                    <div class="form-group">
+                                                        <label for="nomePropriedade">Nome:</label>
+                                                        <input type="text" class="form-control" id="editNome" asp-for="GadoEditar.Nome" value="@gado.Nome">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="tipoGado">Raca:</label>
+                                                        <input type="text" class="form-control" id="editTipoGado" asp-for="GadoEditar.Raca" value="@gado.Raca">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="quantidade">Peso:</label>
+                                                        <input type="number" class="form-control" id="editQuantidade" asp-for="GadoEditar.Peso" value="@gado.Peso">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="dataColheita">Dono:</label>
+                                                        <input type="number" class="form-control" id="editDataPlantio" asp-for="GadoEditar.Dono" value="@gado.Dono">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </th>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            Nenhum gado cadastrada no sistema.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createexamModalLabel">Cadastrar Plantação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-page="GadoHome" asp-page-handler="Create">
+                    <div class="form-group">
+                        <label for="nomePropriedade">Nome da Propriedade:</label>
+                        <input type="text" class="form-control" id="nomePropriedade" asp-for="GadoCadastro.Nome" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoGado">Tipo de Plantação:</label>
+                        <input type="text" class="form-control" id="tipoGado" asp-for="GadoCadastro.Raca" placeholder="Raça">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" class="form-control" id="quantidade" asp-for="GadoCadastro.Peso" placeholder="Peso">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataColheita">Dono:</label>
+                        <input type="number" class="form-control" id="dataPlantio" asp-for="GadoCadastro.Dono" value="Dono">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" value="GadoCadastro">Salvar mudanças</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Seleciona o campo de entrada de busca
+    const searchInput = document.getElementById('searchInput');
+    // Seleciona a tabela
+    const table = document.getElementById('gadosTable');
+    // Seleciona todas as linhas da tabela exceto a primeira (cabeçalho)
+    const rows = table.querySelectorAll('tbody tr');
+
+    // Adiciona um evento de input ao campo de busca
+    searchInput.addEventListener('input', function () {
+        const searchText = this.value.toLowerCase(); // Obtém o texto de pesquisa e converte para minúsculas
+
+        // Itera sobre todas as linhas da tabela
+        rows.forEach(row => {
+            let display = false; // Define uma bandeira para controlar a visibilidade da linha
+
+
+            // Itera sobre as células da linha atual
+            row.querySelectorAll('th').forEach(cell => {
+                // Verifica se o texto de pesquisa está presente em alguma célula da linha
+                if (cell.textContent.toLowerCase().includes(searchText)) {
+                    display = true; // Se encontrar, define a bandeira de exibição como verdadeira
+                }
+            });
+
+            // Define a propriedade de estilo de exibição da linha com base na bandeira de exibição
+            row.style.display = display ? '' : 'none';
+        });
+    });
+</script>
