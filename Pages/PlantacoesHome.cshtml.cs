@@ -42,8 +42,7 @@ namespace AgroConnect.Pages
             PlantacoesFront = await _context.plantacoes.Where(x => x.UsuarioId == _idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
 
             PlantacoesFront.ForEach(x => {
-                x.DataPlantio = x.DataPlantio.Date;
-                x.DataColheita = x.DataColheita.Date;
+                ConvertaDataUTCParaLocal(x);
             });
 
             return Page();
@@ -55,9 +54,7 @@ namespace AgroConnect.Pages
             GetCookieIdUsuarioLogado();
             PlantacaoCadastro.UsuarioId = _idUsuarioLogado.Value;
 
-            /// Converter a Data do Plantio e a Data da Colheita para UTC (Coordinated Universal Time), devido ao postgresql armazenar a data em UTC.
-            PlantacaoCadastro.DataPlantio = PlantacaoCadastro.DataPlantio.ToUniversalTime();
-            PlantacaoCadastro.DataColheita = PlantacaoCadastro.DataColheita.ToUniversalTime();
+            ConvertaDataLocalParaUTC(PlantacaoCadastro);
 
             _context.plantacoes.Add(PlantacaoCadastro);
             await _context.SaveChangesAsync();
@@ -68,9 +65,8 @@ namespace AgroConnect.Pages
         public async Task<IActionResult> OnPostUpdate()
         {
             GetCookieIdUsuarioLogado();
-            /// Converter a Data do Plantio e a Data da Colheita para UTC (Coordinated Universal Time), devido ao postgresql armazenar a data em UTC.
-            PlantacaoEditar.DataPlantio = PlantacaoEditar.DataPlantio.ToUniversalTime();
-            PlantacaoEditar.DataColheita = PlantacaoEditar.DataColheita.ToUniversalTime();
+            
+            ConvertaDataLocalParaUTC(PlantacaoEditar);
             PlantacaoEditar.UsuarioId = _idUsuarioLogado.Value;
 
             _context.plantacoes.Update(PlantacaoEditar);
@@ -94,6 +90,22 @@ namespace AgroConnect.Pages
         {
             var cookie = Request.Cookies["UsuarioLogado"];
             _idUsuarioLogado = cookie == null ? null : int.Parse(cookie);
+        }
+
+        private Plantacao ConvertaDataLocalParaUTC(Plantacao plantacao)
+        {
+            plantacao.DataPlantio = plantacao.DataPlantio.ToUniversalTime();
+            plantacao.DataColheita = plantacao.DataColheita.ToUniversalTime();
+
+            return plantacao;
+        }
+
+        private Plantacao ConvertaDataUTCParaLocal(Plantacao plantacao)
+        {
+            plantacao.DataPlantio = plantacao.DataPlantio.ToLocalTime();
+            plantacao.DataColheita = plantacao.DataColheita.ToLocalTime();
+
+            return plantacao;
         }
     }
 }

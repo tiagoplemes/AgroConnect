@@ -3,144 +3,142 @@
 @{
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
-            <!-- Cabeçalho do conteúdo principal -->
-            <h1>Plantings</h1>
+<div class="container-fluid px-5">
+    <div class="row px-0">
+        <!-- Cabeçalho do conteúdo principal -->
+        <h1>Plantings</h1>
 
-            <!-- Cards com dados -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Dados 1</h5>
-                            <p class="card-text">Informações relevantes aqui.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Dados 2</h5>
-                            <p class="card-text">Outras informações importantes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Dados 3</h5>
-                            <p class="card-text">Mais detalhes relevantes.</p>
-                        </div>
+        <!-- Cards com dados -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados 1</h5>
+                        <p class="card-text">Informações relevantes aqui.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Botão de adicionar lavoura -->
-            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#createModal">Adicionar Lavoura</button>
-
-            <!-- Barra de pesquisa -->
-            <div class="input-group mt-3">
-                <input type="text" class="form-control" placeholder="Pesquisar...">
-                <button class="btn btn-outline-secondary" type="button">Buscar</button>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados 2</h5>
+                        <p class="card-text">Outras informações importantes.</p>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados 3</h5>
+                        <p class="card-text">Mais detalhes relevantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Tabela -->
-            <table class="table table-striped table-hover mt-3">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Id)</th>
-                        <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Nome)</th>
-                        <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Tipo)</th>
-                        <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Quantidade)</th>
-                        <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].DataPlantio)</th>
-                        <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].DataColheita)</th>
-                        <th>Ações</th>
+        <!-- Botão de adicionar lavoura -->
+        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#createModal">Adicionar Lavoura</button>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.PlantacoesFront.Any())
+        <!-- Barra de pesquisa -->
+        <div class="input-group mt-3">
+            <input type="text" class="form-control" placeholder="Pesquisar...">
+            <button class="btn btn-outline-secondary" type="button">Buscar</button>
+        </div>
+
+        <!-- Tabela -->
+        <table class="table table-striped table-hover mt-3">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Tipo)</th>
+                    <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Quantidade)</th>
+                    <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].DataPlantio)</th>
+                    <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].DataColheita)</th>
+                    <th>Ações</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.PlantacoesFront.Any())
+                {
+                    @foreach (var plantacao in Model.PlantacoesFront)
                     {
-                        @foreach (var plantacao in Model.PlantacoesFront)
-                        {
-                            <tr>
-                                <th>@Html.DisplayFor(x => plantacao.Id)</th>
-                                <th>@Html.DisplayFor(x => plantacao.Nome)</th>
-                                <th>@Html.DisplayFor(x => plantacao.Tipo)</th>
-                                <th>@Html.DisplayFor(x => plantacao.Quantidade)</th>
-                                <th>@Html.DisplayFor(x => plantacao.DataPlantio.Date)</th>
-                                <th>@Html.DisplayFor(x => plantacao.DataColheita.Date)</th>
-                                <th>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@plantacao.Id">
-                                        Editar
-                                    </button>
+                        <tr>
+                            <th>@plantacao.Id</th>
+                            <th>@plantacao.Nome</th>
+                            <th>@plantacao.Tipo</th>
+                            <th>@plantacao.Quantidade</th>
+                            <th>@plantacao.DataPlantio.ToString("dd/MM/yyyy")</th>
+                            <th>@plantacao.DataColheita.ToString("dd/MM/yyyy")</th>
+                            <th class="d-flex">
+                                <button type="button" class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#editModal-@plantacao.Id">
+                                    Editar
+                                </button>
 
-                                    <form method="post" asp-page="PlantacoesHome" asp-page-handler="Delete">
-                                        <input type="text" hidden="hidden" asp-for="PlantacaoDeletar.Id" value="@plantacao.Id" />
-                                        <button type="submit" class="btn btn-danger">Deletar</button>
-                                    </form>
+                                <form method="post" asp-page="PlantacoesHome" asp-page-handler="Delete">
+                                    <input type="text" hidden="hidden" asp-for="PlantacaoDeletar.Id" value="@plantacao.Id" />
+                                    <button type="submit" class="btn btn-danger px-4">Deletar</button>
+                                </form>
 
-                                    <div class="modal fade" id="editModal-@plantacao.Id" tabindex="-1" role="dialog" aria-labelledby="editModalLabel-@plantacao.Id" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="editModalLabel-@plantacao.Id">Editar Plantacao</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form method="post" asp-page="PlantacoesHome" asp-page-handler="Update">
+                                <div class="modal fade" id="editModal-@plantacao.Id" tabindex="-1" role="dialog" aria-labelledby="editModalLabel-@plantacao.Id" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModalLabel-@plantacao.Id">Editar Plantacao</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" asp-page="PlantacoesHome" asp-page-handler="Update">
                                                     <!-- Formulário com os campos para edição -->
-                                                        <input type="text" hidden="hidden" asp-for="PlantacaoEditar.Id" value="@plantacao.Id" />
-                                                        <div class="form-group">
-                                                            <label for="nomePropriedade">Nome da Propriedade:</label>
-                                                            <input type="text" class="form-control" id="editNome" asp-for="PlantacaoEditar.Nome" value="@plantacao.Nome">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="tipoPlantacao">Tipo de Plantação:</label>
-                                                            <input type="text" class="form-control" id="editTipoPlantacao" asp-for="PlantacaoEditar.Tipo" value="@plantacao.Tipo">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="quantidade">Quantidade:</label>
-                                                            <input type="number" class="form-control" id="editQuantidade" asp-for="PlantacaoEditar.Quantidade" value="@plantacao.Quantidade">
-                                                        </div>
+                                                    <input type="text" hidden="hidden" asp-for="PlantacaoEditar.Id" value="@plantacao.Id" />
+                                                    <div class="form-group">
+                                                        <label for="nomePropriedade">Nome da Propriedade:</label>
+                                                        <input type="text" class="form-control" id="editNome" asp-for="PlantacaoEditar.Nome" value="@plantacao.Nome">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="tipoPlantacao">Tipo de Plantação:</label>
+                                                        <input type="text" class="form-control" id="editTipoPlantacao" asp-for="PlantacaoEditar.Tipo" value="@plantacao.Tipo">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="quantidade">Quantidade:</label>
+                                                        <input type="number" class="form-control" id="editQuantidade" asp-for="PlantacaoEditar.Quantidade" value="@plantacao.Quantidade">
+                                                    </div>
 
-                                                        <div class="form-group">
-                                                            <label for="dataColheita">Data de Plantio:</label>
-                                                            <input type="date" class="form-control" id="editDataPlantio" asp-for="PlantacaoEditar.DataPlantio" value="@plantacao.DataPlantio.Date">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="dataColheita">Data prevista para Colheita:</label>
-                                                            <input type="date" class="form-control" id="editDataColheita" asp-for="PlantacaoEditar.DataColheita" value="@plantacao.DataColheita.Date">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                                            <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="dataColheita">Data de Plantio:</label>
+                                                        <input type="date" class="form-control" id="editDataPlantio" asp-for="PlantacaoEditar.DataPlantio" value="@plantacao.DataPlantio.ToString("yyyy-MM-dd")">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="dataColheita">Data prevista para Colheita:</label>
+                                                        <input type="date" class="form-control" id="editDataColheita" asp-for="PlantacaoEditar.DataColheita" value="@plantacao.DataColheita.ToString("yyyy-MM-dd")">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                </th>
-                            </tr>
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="7" class="text-center">
-                                Nenhuma plantação cadastrada no sistema.
-                            </td>
+                            </th>
                         </tr>
                     }
-                </tbody>
-            </table>
-        </main>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            Nenhuma plantação cadastrada no sistema.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
 
