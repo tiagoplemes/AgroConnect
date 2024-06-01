@@ -41,12 +41,12 @@
 
         <!-- Barra de pesquisa -->
         <div class="input-group mt-3">
-            <input type="text" class="form-control" placeholder="Pesquisar...">
+            <input type="text" class="form-control" id="searchInput" placeholder="Pesquisar...">
             <button class="btn btn-outline-secondary" type="button">Buscar</button>
         </div>
 
         <!-- Tabela -->
-        <table class="table table-striped table-hover mt-3">
+        <table class="table table-striped table-hover mt-3" id="plantacoesTable">
             <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.PlantacoesFront[0].Id)</th>
@@ -181,3 +181,35 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    // Seleciona o campo de entrada de busca
+    const searchInput = document.getElementById('searchInput');
+    // Seleciona a tabela
+    const table = document.getElementById('plantacoesTable');
+    // Seleciona todas as linhas da tabela exceto a primeira (cabeçalho)
+    const rows = table.querySelectorAll('tbody tr');
+
+    // Adiciona um evento de input ao campo de busca
+    searchInput.addEventListener('input', function () {
+        const searchText = this.value.toLowerCase(); // Obtém o texto de pesquisa e converte para minúsculas
+        
+        // Itera sobre todas as linhas da tabela
+        rows.forEach(row => {
+            let display = false; // Define uma bandeira para controlar a visibilidade da linha
+
+            
+            // Itera sobre as células da linha atual
+            row.querySelectorAll('th').forEach(cell => {
+                // Verifica se o texto de pesquisa está presente em alguma célula da linha
+                if (cell.textContent.toLowerCase().includes(searchText)) {
+                    display = true; // Se encontrar, define a bandeira de exibição como verdadeira
+                }
+            });
+
+            // Define a propriedade de estilo de exibição da linha com base na bandeira de exibição
+            row.style.display = display ? '' : 'none';
+        });
+    });
+</script>
