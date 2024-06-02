@@ -5,6 +5,12 @@ namespace AgroConnect.Models
 {
     public class Gado
     {
+        public Gado() { }
+        public Gado(GadoHistorico historico)
+        {
+            Historico = historico;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -15,11 +21,10 @@ namespace AgroConnect.Models
 
         public double Peso { get; set; }
 
-        public double Dono { get; set; }
-
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
 
-        public GadoHistorico Historico { get; set; }
+        public int HistoricoId { get; set; }
+        public GadoHistorico? Historico { get; set; }
     }
 }

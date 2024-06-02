@@ -37,8 +37,19 @@ namespace AgroConnect.Pages
                 return RedirectToPage("/Error");
             }
 
-            /// Busca todas as plantações do usuário logado.
             GadosFront = await _context.gados.Where(x => x.UsuarioId == _idUsuarioLogado).OrderBy(x => x.Id).ToListAsync();
+
+            GadosFront.ForEach(x =>
+            {
+                if (x.Historico == null && x.HistoricoId == null)
+                {
+                    x.Historico = new GadoHistorico() { Reproducao = "", Saude = "", Vacina = "" };
+                }
+                else
+                {
+                    x.Historico = _context.gadoHistoricos.Find(x.HistoricoId);
+                }
+            });
 
             return Page();
         }
@@ -49,7 +60,14 @@ namespace AgroConnect.Pages
             GetCookieIdUsuarioLogado();
             GadoCadastro.UsuarioId = _idUsuarioLogado.Value;
 
-            GadoCadastro.Historico = new GadoHistorico() { Reproducao = "", Saude = "", Vacina = "" };
+            if(GadoCadastro.Historico == null)
+            {
+                GadoCadastro.Historico = new GadoHistorico() { Reproducao = "", Saude = "", Vacina = "" };
+            }
+
+            _context.gadoHistoricos.Add(GadoCadastro.Historico);
+            await _context.SaveChangesAsync();
+            GadoCadastro.Historico = await _context.gadoHistoricos.OrderByDescending(gh => gh.Id).FirstOrDefaultAsync();
 
             _context.gados.Add(GadoCadastro);
             await _context.SaveChangesAsync();
@@ -62,6 +80,14 @@ namespace AgroConnect.Pages
             GetCookieIdUsuarioLogado();
             GadoEditar.UsuarioId = _idUsuarioLogado.Value;
 
+            if (GadoEditar.Historico == null)
+            {
+                GadoEditar.Historico = new GadoHistorico() { Reproducao = "", Saude = "", Vacina = "" };
+            }
+
+            _context.gadoHistoricos.Update(GadoEditar.Historico);
+            await _context.SaveChangesAsync();
+
             _context.gados.Update(GadoEditar);
             await _context.SaveChangesAsync();
             return RedirectToAction("OnGetAsync");
@@ -73,7 +99,10 @@ namespace AgroConnect.Pages
             GetCookieIdUsuarioLogado();
             GadoDeletar.UsuarioId = _idUsuarioLogado.Value;
 
-            _context.gados.Remove(GadoDeletar);
+            var historicoId = await _context.gados.Where(x => x.Id == GadoDeletar.Id).Select(x => x.HistoricoId).FirstOrDefaultAsync();
+            var historico = await _context.gadoHistoricos.FindAsync(historicoId);
+
+            _context.gadoHistoricos.Remove(historico);
             await _context.SaveChangesAsync();
             return RedirectToAction("OnGetAsync");
         }

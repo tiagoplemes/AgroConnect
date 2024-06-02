@@ -3,6 +3,7 @@ using System;
 using AgroConnect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgroConnect.Migrations
 {
     [DbContext(typeof(AgroConnectDbContext))]
-    partial class AgroConnectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240601193252_Migracao002_RemovendoDonoGado")]
+    partial class Migracao002_RemovendoDonoGado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,8 +52,7 @@ namespace AgroConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HistoricoId")
-                        .IsUnique();
+                    b.HasIndex("HistoricoId");
 
                     b.HasIndex("UsuarioId");
 
@@ -157,8 +159,8 @@ namespace AgroConnect.Migrations
             modelBuilder.Entity("AgroConnect.Models.Gado", b =>
                 {
                     b.HasOne("AgroConnect.Models.GadoHistorico", "Historico")
-                        .WithOne()
-                        .HasForeignKey("AgroConnect.Models.Gado", "HistoricoId")
+                        .WithMany()
+                        .HasForeignKey("HistoricoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

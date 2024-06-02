@@ -27,6 +27,10 @@ namespace AgroConnect.Data
                 .HasOne(p => p.Usuario)
                 .WithMany(u => u.Plantacoes)
                 .HasForeignKey(p => p.UsuarioId);
+
+            modelBuilder.Entity<Gado>()
+                .HasOne(g => g.Historico)
+                .WithOne();
         }
     }
 }

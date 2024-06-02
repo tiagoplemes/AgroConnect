@@ -54,7 +54,9 @@
                     <th>@Html.DisplayNameFor(model => model.GadosFront[0].Nome)</th>
                     <th>@Html.DisplayNameFor(model => model.GadosFront[0].Raca)</th>
                     <th>@Html.DisplayNameFor(model => model.GadosFront[0].Peso)</th>
-                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Dono)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Historico.Saude)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Historico.Reproducao)</th>
+                    <th>@Html.DisplayNameFor(model => model.GadosFront[0].Historico.Vacina)</th>
                     <th>Ações</th>
 
                 </tr>
@@ -69,7 +71,9 @@
                             <th>@gado.Nome</th>
                             <th>@gado.Raca</th>
                             <th>@gado.Peso</th>
-                            <th>@gado.Dono</th>
+                            <th>@gado.Historico.Saude</th>
+                            <th>@gado.Historico.Reproducao</th>
+                            <th>@gado.Historico.Vacina</th>
                             <th class="d-flex">
                                 <button type="button" class="btn btn-primary px-4 me-3" data-bs-toggle="modal" data-bs-target="#editModal-@gado.Id">
                                     Editar
@@ -105,10 +109,20 @@
                                                         <label for="quantidade">Peso:</label>
                                                         <input type="number" class="form-control" id="editQuantidade" asp-for="GadoEditar.Peso" value="@gado.Peso">
                                                     </div>
-
+                                                    <hr />
+                                                    <h5>Histórico do Gado:</h5>
+                                                    <input type="text" hidden="hidden" asp-for="GadoEditar.Historico.Id" value="@gado.Historico.Id" />
                                                     <div class="form-group">
-                                                        <label for="dataColheita">Dono:</label>
-                                                        <input type="number" class="form-control" id="editDataPlantio" asp-for="GadoEditar.Dono" value="@gado.Dono">
+                                                        <label for="">Saúde:</label>
+                                                        <input type="text" class="form-control" id="editHistoricoSaude" asp-for="GadoEditar.Historico.Saude" value="@gado.Historico.Saude">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="dataColheita">Reprodução:</label>
+                                                        <input type="text" class="form-control" id="editHistoricoReproducao" asp-for="GadoEditar.Historico.Reproducao" value="@gado.Historico.Reproducao">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="dataColheita">Vacina:</label>
+                                                        <input type="text" class="form-control" id="editHistoricoVacina" asp-for="GadoEditar.Historico.Vacina" value="@gado.Historico.Vacina">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -127,7 +141,7 @@
                 else
                 {
                     <tr>
-                        <td colspan="6" class="text-center">
+                        <td colspan="8" class="text-center">
                             Nenhum gado cadastrada no sistema.
                         </td>
                     </tr>
@@ -141,7 +155,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createexamModalLabel">Cadastrar Plantação</h5>
+                <h5 class="modal-title" id="createexamModalLabel">Cadastrar Gado</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -158,10 +172,19 @@
                         <label for="quantidade">Quantidade:</label>
                         <input type="number" class="form-control" id="quantidade" asp-for="GadoCadastro.Peso" placeholder="Peso">
                     </div>
-
+                    <hr />
+                    <h5>Histórico do Gado:</h5>
                     <div class="form-group">
-                        <label for="dataColheita">Dono:</label>
-                        <input type="number" class="form-control" id="dataPlantio" asp-for="GadoCadastro.Dono" value="Dono">
+                        <label for="historico">Saúde:</label>
+                        <input type="text" class="form-control" id="historicoSaude" asp-for="GadoCadastro.Historico.Saude" placeholder="Saúde">
+                    </div>
+                    <div class="form-group">
+                        <label for="historico">Reprodução:</label>
+                        <input type="text" class="form-control" id="historicoReproducao" asp-for="GadoCadastro.Historico.Reproducao" placeholder="Reprodução">
+                    </div>
+                    <div class="form-group">
+                        <label for="historico">Vacina:</label>
+                        <input type="text" class="form-control" id="historicoVacina" asp-for="GadoCadastro.Historico.Vacina" placeholder="Vacinas">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
