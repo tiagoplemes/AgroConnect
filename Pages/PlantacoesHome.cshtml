@@ -195,6 +195,7 @@
     searchInput.addEventListener('input', function () {
         const searchText = this.value.toLowerCase(); // Obtém o texto de pesquisa e converte para minúsculas
         
+        debugger;
         // Itera sobre todas as linhas da tabela
         rows.forEach(row => {
             let display = false; // Define uma bandeira para controlar a visibilidade da linha
@@ -203,7 +204,7 @@
             // Itera sobre as células da linha atual
             row.querySelectorAll('th').forEach(cell => {
                 // Verifica se o texto de pesquisa está presente em alguma célula da linha
-                if (cell.textContent.toLowerCase().includes(searchText)) {
+                if (cell.textContent.toLowerCase().includes(searchText) && !cell.textContent.toLowerCase().includes("Editar")) {
                     display = true; // Se encontrar, define a bandeira de exibição como verdadeira
                 }
             });
